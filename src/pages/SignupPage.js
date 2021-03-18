@@ -2,6 +2,7 @@
 import React from 'react'
 import { Button, TextField } from '@material-ui/core'
 import * as yup from 'yup';
+import { useFormik } from 'formik';
 
 export default function SignupPage() {
 
@@ -14,6 +15,20 @@ export default function SignupPage() {
             .string()
             .min(4, 'Password should be of minimum 4 characters length')
             .required('Password is required'),
+    });
+
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: '',
+        },
+        validationSchema: validationSchema,
+        onSubmit: (values) => {
+            
+            const jsonFormData = JSON.stringify(values);
+            console.log('Login Form:', jsonFormData);
+            
+        },
     });
 
 

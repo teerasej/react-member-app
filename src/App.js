@@ -6,6 +6,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import LoginPage from './pages/LoginPage';
 
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
         <Switch>
           <Route path="/">
             <Main/>
+          </Route>
+          <Route path="/login">
+            <LoginPage/>
           </Route>
         </Switch>
       </Router>

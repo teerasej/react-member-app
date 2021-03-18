@@ -7,6 +7,7 @@ import {
   Route
 } from "react-router-dom";
 import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/login" exact>
             <LoginPage/>
+          </Route>
+          <Route path="/signup" exact>
+            <SignupPage/>
           </Route>
         </Switch>
       </Router>

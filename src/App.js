@@ -8,14 +8,17 @@ import {
 } from "react-router-dom";
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import { Provider } from 'react-redux';
+import configureStore from './redux/store';
 
+const store = configureStore();
 
 function App() {
   return (
+    <Provider store={store}>
     <div>
       <Router>
         <Switch>
-        
           <Route path="/" exact>
             <Main/>
           </Route>
@@ -28,6 +31,7 @@ function App() {
         </Switch>
       </Router>
     </div>
+    </Provider>
   );
 }
 

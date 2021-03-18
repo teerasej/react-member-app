@@ -6,9 +6,12 @@ import {
   } from "react-router-dom";
 import * as yup from 'yup';
 import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux'
+import { actions } from '../redux/actions';
 
 export default function LoginPage() {
 
+    const dispatch = useDispatch();
     const validationSchema = yup.object({
         email: yup
             .string()
@@ -36,7 +39,15 @@ export default function LoginPage() {
     });
 
     const onAuthentication = (jsonFormData) => {
+        
+        // Authen with Web API
 
+
+        // if authen success, dispatch token to reducer
+        dispatch({
+            type: actions.LOGIN_SUCCESS,
+            payload: '1234'
+        })
     }
 
 

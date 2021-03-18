@@ -1,5 +1,6 @@
 
 import React from 'react'
+import { useState } from 'react'
 import { Button, TextField } from '@material-ui/core'
 import * as yup from 'yup';
 import { useFormik } from 'formik';
@@ -27,11 +28,19 @@ export default function SignupPage() {
             
             const jsonFormData = JSON.stringify(values);
             console.log('Sign up Form:', jsonFormData);
-            
+            onStartRegisteration(jsonFormData);
         },
     });
 
+    const [isRegisterationSuccess, setIsRegisterationSuccess] = useState(false);
 
+    const onStartRegisteration = (jsonFormData:any) => {
+
+        // register new account
+
+        
+        setIsRegisterationSuccess(true);
+    }
     return (
 
         <div>

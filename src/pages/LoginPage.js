@@ -1,6 +1,9 @@
 
 import React from 'react'
 import { Button, TextField } from '@material-ui/core'
+import {
+    Link
+  } from "react-router-dom";
 
 export default function LoginPage() {
     return (
@@ -29,7 +32,7 @@ export default function LoginPage() {
                     </Button>
                 </div>
                 <div>
-                    <Button>
+                    <Button component={Link} to={'/signup'}>
                         Create Account?
                     </Button>
                 </div>

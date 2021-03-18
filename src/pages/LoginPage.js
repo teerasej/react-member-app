@@ -2,7 +2,7 @@
 import React from 'react'
 import { Button, TextField } from '@material-ui/core'
 import {
-    Link
+    Link, useHistory
   } from "react-router-dom";
 import * as yup from 'yup';
 import { useFormik } from 'formik';
@@ -12,6 +12,8 @@ import { actions } from '../redux/actions';
 export default function LoginPage() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
+
     const validationSchema = yup.object({
         email: yup
             .string()
@@ -48,6 +50,8 @@ export default function LoginPage() {
             type: actions.LOGIN_SUCCESS,
             payload: '1234'
         })
+
+        history.push('/');
     }
 
 

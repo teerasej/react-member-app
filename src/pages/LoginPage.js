@@ -29,7 +29,7 @@ export default function LoginPage() {
         onSubmit: (values) => {
             
             const jsonFormData = JSON.stringify(values);
-            console.log('Sign up Form:', jsonFormData);
+            console.log('Login Form:', jsonFormData);
             
         },
     });

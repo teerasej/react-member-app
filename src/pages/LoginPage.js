@@ -31,8 +31,13 @@ export default function LoginPage() {
             const jsonFormData = JSON.stringify(values);
             console.log('Login Form:', jsonFormData);
             
+            onAuthentication(jsonFormData)
         },
     });
+
+    const onAuthentication = (jsonFormData) => {
+
+    }
 
 
     return (

@@ -56,7 +56,7 @@ export default function LoginPage() {
         }
        
 
-        // history.push('/');
+        history.push('/');
     }
 
 

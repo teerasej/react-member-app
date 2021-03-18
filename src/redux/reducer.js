@@ -1,5 +1,4 @@
-
-import { ActionType } from "./actions";
+import { actions } from "./actions"
 
 const initialState = {
     
@@ -8,7 +7,8 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
     switch (type) {
 
-    case ActionType.LOGIN_SUCCESS:
+    case actions.LOGIN_SUCCESS:
+        console.log('token:', payload);
         return { ...state, token: payload }
 
     default:

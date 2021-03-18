@@ -6,6 +6,7 @@ import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } 
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { useHistory } from 'react-router';
+import { signUp } from '../services/WebAPI';
 
 export default function SignupPage() {
 
@@ -37,12 +38,12 @@ export default function SignupPage() {
     const [isRegisterationSuccess, setIsRegisterationSuccess] = useState(false);
     const history = useHistory();
 
-    const onStartRegisteration = (jsonFormData:any) => {
+    const onStartRegisteration = async (jsonFormData)  => {
 
         // register new account
-
+        let regisResult = await signUp(jsonFormData);
         
-        setIsRegisterationSuccess(true);
+        setIsRegisterationSuccess(regisResult);
     }
 
     const onDialogClose = () => {

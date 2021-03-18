@@ -36,12 +36,16 @@ export default function SignupPage() {
 
         <div>
             <h1>Create new account: </h1>
-            <form>
+            <form onSubmit={formik.handleSubmit}>
                 <div>
                     <TextField
                         id="email"
                         name="email"
                         label="Email"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
+                        error={formik.touched.email && Boolean(formik.errors.email)}
+                        helperText={formik.touched.email && formik.errors.email}
                     />
                 </div>
                 <div>
@@ -50,6 +54,10 @@ export default function SignupPage() {
                         name="password"
                         label="Password"
                         type="password"
+                        value={formik.values.password}
+                        onChange={formik.handleChange}
+                        error={formik.touched.password && Boolean(formik.errors.password)}
+                        helperText={formik.touched.password && formik.errors.password}
                     />
                 </div>
                 <div>

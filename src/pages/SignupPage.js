@@ -2,8 +2,10 @@
 import React from 'react'
 import { useState } from 'react'
 import { Button, TextField } from '@material-ui/core'
+import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@material-ui/core'
 import * as yup from 'yup';
 import { useFormik } from 'formik';
+import { useHistory } from 'react-router';
 
 export default function SignupPage() {
 
@@ -33,6 +35,7 @@ export default function SignupPage() {
     });
 
     const [isRegisterationSuccess, setIsRegisterationSuccess] = useState(false);
+    const history = useHistory();
 
     const onStartRegisteration = (jsonFormData:any) => {
 
@@ -41,6 +44,11 @@ export default function SignupPage() {
         
         setIsRegisterationSuccess(true);
     }
+
+    const onDialogClose = () => {
+        history.push('/login');
+    }
+
     return (
 
         <div>
@@ -75,6 +83,23 @@ export default function SignupPage() {
                     </Button>
                 </div>
             </form>
+            <Dialog
+                open={isRegisterationSuccess}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">Successful!</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        Registration Completed! Please login with your account.
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={onDialogClose} color="primary">
+                        ok
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </div>
     )
 }

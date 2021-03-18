@@ -2,18 +2,22 @@
 import React, { useState, useEffect} from 'react'
 import { CircularProgress } from "@material-ui/core";
 import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
 
 export default function Main() {
 
     const [onLoading, setOnLoading] = useState(true);
     const history = useHistory();
+    const token = useSelector(state => state.token);
 
     let alreadyLogin = false;
 
 
     useEffect(() => {
         // check token 
-
+        if(token) {
+            alreadyLogin = true;
+        }
 
         // หยุดแสดงตัวโหลด
         setOnLoading(false);

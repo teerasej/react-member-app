@@ -6,6 +6,14 @@ export default function Main() {
 
     const [onLoading, setOnLoading] = useState(true);
 
+    useEffect(() => {
+        // check token 
+
+        // หยุดแสดงตัวโหลด
+        setOnLoading(false);
+    }, []);
+
+
     if (onLoading) {
         return (
             <CircularProgress />

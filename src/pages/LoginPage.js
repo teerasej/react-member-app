@@ -8,6 +8,7 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux'
 import { actions } from '../redux/actions';
+import { login } from '../services/WebAPI';
 
 export default function LoginPage() {
 
@@ -40,18 +41,22 @@ export default function LoginPage() {
         },
     });
 
-    const onAuthentication = (jsonFormData) => {
+    const onAuthentication = async (jsonFormData) => {
         
         // Authen with Web API
+        let token = await login(jsonFormData);
 
 
         // if authen success, dispatch token to reducer
-        dispatch({
-            type: actions.LOGIN_SUCCESS,
-            payload: '1234'
-        })
+        if(token) {
+            dispatch({
+                type: actions.LOGIN_SUCCESS,
+                payload: token
+            })
+        }
+       
 
-        history.push('/');
+        // history.push('/');
     }
 
 

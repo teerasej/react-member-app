@@ -26,7 +26,7 @@ export default function SignupPage() {
         onSubmit: (values) => {
             
             const jsonFormData = JSON.stringify(values);
-            console.log('Login Form:', jsonFormData);
+            console.log('Sign up Form:', jsonFormData);
             
         },
     });

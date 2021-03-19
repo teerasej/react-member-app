@@ -3,6 +3,7 @@ import React, { useState, useEffect} from 'react'
 import { CircularProgress } from "@material-ui/core";
 import { useHistory } from 'react-router';
 import { useSelector } from 'react-redux';
+import HomePage from '../pages/HomePage';
 
 export default function Main() {
 
@@ -36,7 +37,9 @@ export default function Main() {
         );
     } else {
         return (
-            <div>Home</div>
+            <div>
+                <HomePage/>
+            </div>
         );
     }
 }

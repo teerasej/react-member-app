@@ -45,3 +45,29 @@ export const login = async (jsonData) => {
     
 }
 
+export const getUserProfile = async (token) => {
+
+    console.log(token)
+
+    const config = { 
+        headers: {
+            'Authorization' : `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        }
+    };
+
+    let response = await client.get(
+        '/users/profile',
+        config
+    );
+    console.log(response);
+
+    if(response.status == 200) {
+        return response.data.user;
+    } else {
+        return undefined;
+    }
+    
+    
+}
+
